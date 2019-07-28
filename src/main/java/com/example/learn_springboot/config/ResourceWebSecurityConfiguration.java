@@ -15,7 +15,7 @@ public class ResourceWebSecurityConfiguration extends WebSecurityConfigurerAdapt
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests().antMatchers("/home", "/index").permitAll().antMatchers("/api/**").authenticated().and()
+    http.authorizeRequests().antMatchers("/home").permitAll().antMatchers("/api/**", "/index").authenticated().and()
         .formLogin();
   }
 }
