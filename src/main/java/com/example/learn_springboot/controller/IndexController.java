@@ -27,7 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@Autowired
 	private ShareService service;
@@ -59,37 +59,5 @@ public class IndexController {
 		resultList.add(data01);
 
 		return "index";
-	}
-
-	@RequestMapping(value = "/member/{action}", method = { RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
-			ModelAndView modelandView) {
-
-		String viewName = "/member/" + action ;
-
-		Map<String, Object> resultMap = new HashMap<String, Object>() ;
-		List<Object> resultList = new ArrayList<Object>();
-
-		// divided depending on action value
-		if ("edit".equalsIgnoreCase(action)) {
-		} else if ("update".equalsIgnoreCase(action)) {
-			resultMap = (Map) service.getObject(viewName, paramMap);
-			paramMap.put("action", action);
-		} else if ("merge".equalsIgnoreCase(action)) {
-			resultMap = (Map) service.saveObject(viewName, paramMap);
-		} else if ("read".equalsIgnoreCase(action)) {
-			resultMap = (Map) service.getObject(viewName, paramMap);
-		} else if ("list".equalsIgnoreCase(action)) {
-			resultList = (List) service.getList(viewName, paramMap);
-		} else if ("delete".equalsIgnoreCase(action)) {
-			resultList = (List) service.deleteObject(viewName, paramMap);
-		} 
-		
-		modelandView.setViewName(viewName);
-
-		modelandView.addObject("paramMap", paramMap);
-		modelandView.addObject("resultMap", resultMap);
-		modelandView.addObject("resultList", resultList);
-		return modelandView;
 	}
 }
