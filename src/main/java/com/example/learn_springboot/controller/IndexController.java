@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import com.example.learn_springboot.repository.ShareDao;
+import com.example.learn_springboot.service.ShareService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +28,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class IndexController {
 
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
-	
+
+	@Autowired
+	private ShareService service;
+
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -58,9 +61,6 @@ public class IndexController {
 		return "index";
 	}
 
-	@Autowired
-	public ShareDao service;
-
 	@RequestMapping(value = "/member/{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
 			ModelAndView modelandView) {
@@ -73,18 +73,16 @@ public class IndexController {
 		// divided depending on action value
 		if ("edit".equalsIgnoreCase(action)) {
 		} else if ("update".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map) service.getObject(viewName, paramMap);
 			paramMap.put("action", action);
 		} else if ("merge".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.saveObject(paramMap);
+			resultMap = (Map) service.saveObject(viewName, paramMap);
 		} else if ("read".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getObject(paramMap);
+			resultMap = (Map) service.getObject(viewName, paramMap);
 		} else if ("list".equalsIgnoreCase(action)) {
-			resultList = (List<Object>) service.getList(paramMap);
-		} else if ("list_pagination".equalsIgnoreCase(action)) {
-			resultMap = (Map<String, Object>) service.getListPagination(paramMap);
+			resultList = (List) service.getList(viewName, paramMap);
 		} else if ("delete".equalsIgnoreCase(action)) {
-			resultList = (List<Object>) service.deleteObject(paramMap);
+			resultList = (List) service.deleteObject(viewName, paramMap);
 		} 
 		
 		modelandView.setViewName(viewName);
