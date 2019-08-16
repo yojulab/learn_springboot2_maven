@@ -18,7 +18,10 @@ public class Student  implements Serializable{
 	private String passportNumber;
 	
 
-	public Student() {
+	public Student(Object object, Object object2, Object object3) {
+		this.id = id;
+		this.name = name;
+		this.passportNumber = passportNumber;
 	}
 
 	public Student(Long id, String name, String passportNumber) {

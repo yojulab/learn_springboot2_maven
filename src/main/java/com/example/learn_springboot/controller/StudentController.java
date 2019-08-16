@@ -9,6 +9,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import com.example.learn_springboot.repository.StudentRepository;
+import com.example.learn_springboot.model.Student;
 import com.example.learn_springboot.repository.ShareService;
 
 import org.slf4j.Logger;
@@ -45,16 +46,16 @@ public class StudentController {
 		// divided depending on action value
 		if ("edit".equals(action)) {
 		} else if ("update".equals(action)) {
-			// resultMap = (Map) repository.getObject(viewName, paramMap);
+			resultMap = (Map) repository.getOne((Long)paramMap.get("id"));
 			paramMap.put("action", action);
 		} else if ("merge".equals(action)) {
-			// resultMap = (Map) repository.saveObject(viewName, paramMap);
+			repository.saveAndFlush(new Student(paramMap.get("id"), paramMap.get("name"), paramMap.get("passportNumber")));
 		} else if ("read".equals(action)) {
-			// resultMap = (Map) repository.getObject(viewName, paramMap);
+			resultMap = (Map) repository.getOne((Long)paramMap.get("id"));
 		} else if ("list".equals(action)) {
 		resultList = (List) repository.findAll();
 		} else if ("delete".equals(action)) {
-			// resultList = (List) repository.deleteObject(viewName, paramMap);
+			repository.deleteById((Long)paramMap.get("id"));;
 		} 
 		
 		modelandView.setViewName(viewName);
