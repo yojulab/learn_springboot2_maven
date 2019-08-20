@@ -24,7 +24,8 @@ public class OrganizationService{
 	public Object getList(Object dataMap) {
 		String sqlMapId = "organization.list";
 
-		Object resultObject = dao.getList(sqlMapId, dataMap);
+		Map resultObject = new HashMap<>();
+		resultObject.put("resultList", dao.getList(sqlMapId, dataMap));
 		
 		return resultObject;
 	}
