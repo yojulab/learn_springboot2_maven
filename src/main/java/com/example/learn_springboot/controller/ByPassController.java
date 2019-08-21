@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class ByPassController {
-	@RequestMapping(value = {"/home", "/login", "/indexlayout"})
+	@RequestMapping(value = {"/home", "/login", "/exampleLayout"})
 	public void byPass() {
 	}
 }
