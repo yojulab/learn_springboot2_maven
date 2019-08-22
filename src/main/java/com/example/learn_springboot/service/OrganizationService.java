@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OrganizationService{
+public class OrganizationService {
 
 	@Autowired
 	private OrganizationRepository repository;
@@ -26,9 +26,10 @@ public class OrganizationService{
 		String sqlMapId = "organization.list";
 
 		Object resultObject = new HashMap<>();
-		// ((Map<String, Object>) resultObject).put("resultList", dao.getList(sqlMapId, dataMap));
+		// ((Map<String, Object>) resultObject).put("resultList", dao.getList(sqlMapId,
+		// dataMap));
 		((Map<String, Object>) resultObject).put("resultList", repository.findAll());
-		
+
 		return resultObject;
 	}
 
@@ -36,27 +37,36 @@ public class OrganizationService{
 		String sqlMapId = "organization.read";
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
-		
+
 		return resultObject;
 	}
 
 	public Object saveObject(Map<String, Object> dataMap) {
 		String uniqueSequence = (String) dataMap.get("ORGANIZATION_SEQ");
-		
-		if("".equals(uniqueSequence)){
+
+		if ("".equals(uniqueSequence)) {
 			uniqueSequence = commonUtil.getUniqueSequence();
 		}
 		dataMap.put("ORGANIZATION_SEQ", uniqueSequence);
-		
-		String sqlMapId = "organization.merge";
+
+		String sqlMapId = "organization.insert";
 
 		Integer resultKey = (Integer) dao.saveObject(sqlMapId, dataMap);
-		
-		sqlMapId = "organization.read";
-		
-		Object resultObject = dao.getObject(sqlMapId, dataMap);
+
+		Object resultObject = this.getObject(dataMap);
 
 		return resultObject;
+	}
+
+	public Object updateObject(Map<String, Object> dataMap) {
+		String sqlMapId = "organization.update";
+
+		Integer resultKey = (Integer) dao.saveObject(sqlMapId, dataMap);
+
+		Object resultObject = this.getObject(dataMap);
+
+		return resultObject;
+
 	}
 
 	public Object deleteObject(Object dataMap) {
@@ -64,11 +74,8 @@ public class OrganizationService{
 
 		Integer resultKey = (Integer) dao.deleteObject(sqlMapId, dataMap);
 
-		sqlMapId = "organization.list";
-		
-		Object resultObject = new HashMap<>();
-		((Map<String, Object>) resultObject).put("resultList", dao.getList(sqlMapId, dataMap));
-		
+		Object resultObject = this.getList(dataMap);
+
 		return resultObject;
 	}
 }

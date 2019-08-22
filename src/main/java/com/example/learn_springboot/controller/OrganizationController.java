@@ -43,10 +43,12 @@ public class OrganizationController {
 
 		// divided depending on action value
 		if ("edit".equals(action)) {
-		} else if ("update".equals(action)) {
 			resultMap = service.getObject(paramMap);
-			action = "edit";
-		} else if ("merge".equals(action)) {
+		} else if ("input".equals(action)) {
+		} else if ("update".equals(action)) {
+			resultMap = service.updateObject(paramMap);
+			action = "read";
+		} else if ("insert".equals(action)) {
 			resultMap = service.saveObject(paramMap);
 			action = "read";
 		} else if ("read".equals(action)) {

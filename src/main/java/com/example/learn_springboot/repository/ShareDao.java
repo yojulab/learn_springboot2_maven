@@ -23,7 +23,13 @@ public class ShareDao{
 	}
 
 	public Object saveObject(String sqlMapId, Object dataMap) {
-		Integer resultObject = sqlSession.insert((String)sqlMapId, dataMap);
+		Integer resultObject = sqlSession.insert(sqlMapId, dataMap);
+		
+		return resultObject;
+	}
+
+	public Object updateObject(String sqlMapId, Object dataMap) {
+		Integer resultObject = sqlSession.update(sqlMapId, dataMap);
 		
 		return resultObject;
 	}

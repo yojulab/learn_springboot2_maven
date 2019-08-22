@@ -32,8 +32,9 @@
 								<tr th:each="resultData: ${resultMap.resultList}">
 									<td><input type="checkbox" id="selecctall" /></td>
 									<td th:text=${resultData.ORGANIZATION_SEQ}>ORGANIZATION_SEQ</td>
-									<td th:text=${resultData.NAME}>NAME</td>
-									<td th:text=${resultData.TELEPHONE}>TELEPHONE</td>
+									<td><a href="./organization/read"
+											th:href=@{/organization/read(ORGANIZATION_SEQ=${resultData.ORGANIZATION_SEQ})} th:text=${resultData.NAME}>NAME
+											</a> </td> <td th:text=${resultData.TELEPHONE}>TELEPHONE</td>
 									<td th:text=${resultData.ORDER_NUMBER}>ORDER_NUMBER</td>
 									<td><a href="./organization/update"
 											th:href=@{/organization/update(ORGANIZATION_SEQ=${resultData.ORGANIZATION_SEQ})}>edit
