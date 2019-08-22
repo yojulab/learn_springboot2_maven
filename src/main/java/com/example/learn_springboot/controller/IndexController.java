@@ -14,12 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
+	@RequestMapping(value = {"/index", "/thymeleafmerge/thymeleafExtend"}, method = RequestMethod.GET)
+	public void actionMethod(@RequestParam Map<String, Object> paramMap, ModelAndView modelandView) {
 		String viewName = "/index";
 
-		modelandView.setViewName(viewName);
+		// modelandView.setViewName(viewName);
 
-		return modelandView;
+		// return modelandView;
 	}
 }
