@@ -17,7 +17,7 @@ public class Student  implements Serializable{
 	private String name;
 	private String passportNumber;
 	
-
+	Student(){}
 	public Student(Object object, Object object2, Object object3) {
 		this.id = id;
 		this.name = name;
