@@ -3,6 +3,7 @@ package com.example.learn_springboot.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.example.learn_springboot.repository.OrganizationRepository;
 import com.example.learn_springboot.repository.ShareDao;
 import com.example.learn_springboot.util.CommonUtil;
 
@@ -12,9 +13,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrganizationService{
 
-//	@Autowired
-//	private ShareDao dao;
-	
+	@Autowired
+	private OrganizationRepository repository;
+
 	@Autowired
 	private ShareDao dao;
 
@@ -24,8 +25,9 @@ public class OrganizationService{
 	public Object getList(Object dataMap) {
 		String sqlMapId = "organization.list";
 
-		Map resultObject = new HashMap<>();
-		resultObject.put("resultList", dao.getList(sqlMapId, dataMap));
+		Object resultObject = new HashMap<>();
+		// ((Map<String, Object>) resultObject).put("resultList", dao.getList(sqlMapId, dataMap));
+		((Map<String, Object>) resultObject).put("resultList", repository.findAll());
 		
 		return resultObject;
 	}
@@ -64,8 +66,8 @@ public class OrganizationService{
 
 		sqlMapId = "organization.list";
 		
-		Map resultObject = new HashMap();
-		resultObject.put("resultList", dao.getList(sqlMapId, dataMap));
+		Object resultObject = new HashMap<>();
+		((Map<String, Object>) resultObject).put("resultList", dao.getList(sqlMapId, dataMap));
 		
 		return resultObject;
 	}

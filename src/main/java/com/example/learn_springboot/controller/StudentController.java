@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.example.learn_springboot.model.Student;
-import com.example.learn_springboot.repository.StudentRepository;
+import com.example.learn_springboot.repository.OrganizationRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +27,7 @@ public class StudentController {
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
 	@Autowired
-	private StudentRepository repository;
+	private OrganizationRepository repository;
 
 	@RequestMapping(value = "/student/{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,

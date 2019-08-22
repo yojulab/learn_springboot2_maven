@@ -39,30 +39,26 @@ public class OrganizationController {
 	public ModelAndView actionMethod(@RequestParam Map<String, Object> paramMap, @PathVariable String action,
 			ModelAndView modelandView) {
 
-		String viewName = MAPPING + action;
-		String forwardView = (String) paramMap.get("forwardView") ;
-
 		Object resultMap = new HashMap<String, Object>() ;
 
 		// divided depending on action value
-		if ("edit".equalsIgnoreCase(action)) {
-			((Map<String, Object>) resultMap).put("PARENT_ORGANIZATION_SEQ", paramMap.get("PARENT_ORGANIZATION_SEQ"));
-		} else if ("update".equalsIgnoreCase(action)) {
+		if ("edit".equals(action)) {
+		} else if ("update".equals(action)) {
 			resultMap = service.getObject(paramMap);
-			paramMap.put("action", action);
-		} else if ("merge".equalsIgnoreCase(action)) {
+			action = "edit";
+		} else if ("merge".equals(action)) {
 			resultMap = service.saveObject(paramMap);
-		} else if ("read".equalsIgnoreCase(action)) {
+			action = "read";
+		} else if ("read".equals(action)) {
 			resultMap = service.getObject(paramMap);
-		} else if ("list".equalsIgnoreCase(action)) {
+		} else if ("list".equals(action)) {
 			resultMap = service.getList(paramMap);
-		} else if ("delete".equalsIgnoreCase(action)) {
+		} else if ("delete".equals(action)) {
 			resultMap = service.deleteObject(paramMap);
+			action = "list";
 		} 
 
-		if(forwardView != null){
-			viewName = forwardView;
-		}
+		String viewName = MAPPING + action;
 
 		modelandView.setViewName(viewName);
 

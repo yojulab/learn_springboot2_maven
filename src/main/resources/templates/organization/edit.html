@@ -26,14 +26,7 @@
                                 <input class="form-control" type="text" name="ORDER_NUMBER" placeholder="1"
                                     th:value="${resultMap.ORDER_NUMBER }">
                             </div>
-                            <div class="form-group">
-                                <label for="disabledSelect">PARENT_ORGANIZATION_SEQ Disabled input </label>
-                                <input class="form-control" type="text" name="PARENT_ORGANIZATION_SEQ"
-                                    th:value="${resultMap.PARENT_ORGANIZATION_SEQ }" readonly>
-                                <p class="help-block">using Parent UUID method with disabled</p>
-                            </div>
-                            <button type="submit" class="btn btn-default"> th:text=${paramMap.action == 'update' ?
-                                'Update' : 'Insert' } Button</button>
+                            <button type="submit" class="btn btn-default"> Button</button>
                         </form>
                     </div>
                     <!-- /.col-lg-6 (nested) -->
