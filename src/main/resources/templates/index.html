@@ -1,43 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Bootstrap Core CSS -->
-	<link type="text/css" th:href=@{/css/bootstrap.min.css} rel="stylesheet" />
-
-    <!-- MetisMenu CSS -->
-	<link type="text/css" th:href=@{/css/metisMenu.min.css} rel="stylesheet" />
-
-    <!-- Custom CSS -->
-	<link type="text/css" th:href=@{/css/sb-admin-2.css} rel="stylesheet" />
-
-    <!-- Custom Fonts -->
-	<link type="text/css" th:href=@{/css/font-awesome.css} rel="stylesheet" />
-
-    <!-- Timeline CSS -->
-    <link th:href=@{/css/timeline.css} rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link th:href=@{/css/morris.css} rel="stylesheet">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- jQuery -->
-	<script type="text/javascript" th:src=@{js/jquery.min.js}></script>
+    <script type="text/javascript" src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-	<script type="text/javascript" th:src=@{js/bootstrap.min.js}></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-	<script type="text/javascript" th:src=@{js/metisMenu.min.js}></script>
+    <script type="text/javascript" src="../static/js/metisMenu.min.js" th:src="@{/js/metisMenu.min.js}"></script>
 
     <!-- Custom Theme JavaScript -->
-	<script type="text/javascript" th:src=@{js/sb-admin-2.js}></script>
+    <script type="text/javascript" src="../static/js/sb-admin-2.js" th:src="@{/js/sb-admin-2.js}"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script th:src=@{js/raphael-min.js}></script>
-    <script th:src=@{js/morris.min.js}></script>
-    <script th:src=@{js/morris-data.js}></script>
-<title>Home</title>
+    <!-- Bootstrap Core CSS -->
+    <link type="text/css" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+
+    <!-- MetisMenu CSS -->
+    <link type="text/css" href="../static/css/metisMenu.min.css" th:href="@{/css/metisMenu.min.css}" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link type="text/css" href="../static/css/sb-admin-2.css" th:href="@{/css/sb-admin-2.css}" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link type="text/css" href="../static/css/font-awesome.css" th:href="@{/css/font-awesome.css}" rel="stylesheet" />
+    <title>Home</title>
 </head>
+
 <body>
     <div id="wrapper">
 
@@ -50,10 +41,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href=@{/}>Clustering Incubation Center</a>
-            </div>
-            <!-- /.navbar-header -->
+                <a class="navbar-brand" href=@{/}>Clustering Incubation Center</a> </div> <!-- /.navbar-header -->
 
+<<<<<<< HEAD
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -110,66 +100,119 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a th:href=@{organization/list}>Organization List</a>
+=======
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#"><i class="fa fa-sign-in fa-fw"></i> Single Mailing</a>
+>>>>>>> ProjectSample
                                 </li>
-                                <li>
-                                    <a th:href=@{organization/edit}>Organization Edit</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Member<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a th:href=@{member/list}>Member List</a>
-                                </li>
-                                <li>
-                                    <a th:href=@{member/edit}>Member Edit</a>
+                                <li><a href="#"><i class="fa fa-random fa-fw"></i> Double Mailing</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                            <!-- /.dropdown-messages -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-file-code-o fa-fw"></i> Common Code<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Common Code List</a>
+                        <!-- /.dropdown -->
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                                 </li>
-                                <li>
-                                    <a th:href=@{commonCode/edit}>Common Code Edit</a>
+                                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a th:href=@{login}><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                            <!-- /.dropdown-user -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Multi Board<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Board List</a>
-                                </li>
-                                <li>
-                                    <a href="#">Board Edit</a>
-                                </li>
-                                <li>
-                                    <a href="#">Board Manager <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Manager List</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Manager Edit</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        <!-- /.dropdown -->
                     </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
+                    <!-- /.navbar-top-links -->
+
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li class="sidebar-search">
+                                    <div class="input-group custom-search-form">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <!-- /input-group -->
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-sitemap fa-fw"></i> Organization<span
+                                            class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a th:href=@{organization/list}>Organization List</a> </li> <li>
+                                                <a th:href=@{organization/edit}>Organization Edit</a> </li> </ul>
+                                                    <!-- /.nav-second-level -->
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-user fa-fw"></i> Member<span
+                                                    class="fa arrow"></span></a>
+                                            <ul class="nav nav-second-level">
+                                                <li>
+                                                    <a th:href=@{member/list}>Member List</a> </li> <li>
+                                                        <a th:href=@{member/edit}>Member Edit</a> </li> </ul>
+                                                            <!-- /.nav-second-level -->
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-file-code-o fa-fw"></i> Common Code<span
+                                                            class="fa arrow"></span></a>
+                                                    <ul class="nav nav-second-level">
+                                                        <li>
+                                                            <a href="#">Common Code List</a>
+                                                        </li>
+                                                        <li>
+                                                            <a th:href=@{commonCode/edit}>Common Code Edit</a> </li>
+                                                                </ul> <!-- /.nav-second-level -->
+                                                        </li>
+                                                        <li>
+                                                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Multi
+                                                                Board<span class="fa arrow"></span></a>
+                                                            <ul class="nav nav-second-level">
+                                                                <li>
+                                                                    <a href="#">Board List</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Board Edit</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#">Board Manager <span
+                                                                            class="fa arrow"></span></a>
+                                                                    <ul class="nav nav-third-level">
+                                                                        <li>
+                                                                            <a href="#">Manager List</a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="#">Manager Edit</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <!-- /.nav-third-level -->
+                                                                </li>
+                                                            </ul>
+                                                            <!-- /.nav-second-level -->
+                                                        </li>
+                                                    </ul>
+                        </div>
+                        <!-- /.sidebar-collapse -->
+                    </div>
+                    <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
             <div class="row">
@@ -277,7 +320,8 @@
                             <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
                             <div class="pull-right">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                        data-toggle="dropdown">
                                         Actions
                                         <span class="caret"></span>
                                     </button>
@@ -307,7 +351,8 @@
                             <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
                             <div class="pull-right">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                        data-toggle="dropdown">
                                         Actions
                                         <span class="caret"></span>
                                     </button>
@@ -417,11 +462,15 @@
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
                                             <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via
+                                                    Twitter</small>
                                             </p>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
+                                                laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia
+                                                pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas
+                                                suscipit facere rem dicta, debitis.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -433,8 +482,14 @@
                                             <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem
+                                                quibusdam, tenetur commodi provident cumque magni voluptatem libero,
+                                                quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias,
+                                                officia repellendus.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
+                                                maiores odit qui est tempora eos, nostrum provident explicabo
+                                                dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae
+                                                minus eaque facere.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -446,7 +501,10 @@
                                             <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus
+                                                numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil
+                                                iure molestias aliquam, voluptatem totam quaerat, magni commodi
+                                                quisquam.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -456,7 +514,10 @@
                                             <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates est quaerat asperiores sapiente, eligendi, nihil. Itaque quos, alias sapiente rerum quas odit! Aperiam officiis quidem delectus libero, omnis ut debitis!</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates est
+                                                quaerat asperiores sapiente, eligendi, nihil. Itaque quos, alias
+                                                sapiente rerum quas odit! Aperiam officiis quidem delectus libero, omnis
+                                                ut debitis!</p>
                                         </div>
                                     </div>
                                 </li>
@@ -468,11 +529,15 @@
                                             <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus
+                                                modi quam ipsum alias at est molestiae excepturi delectus nesciunt,
+                                                quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum,
+                                                atque.</p>
                                             <hr>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="fa fa-gear"></i>  <span class="caret"></span>
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
+                                                    data-toggle="dropdown">
+                                                    <i class="fa fa-gear"></i> <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
                                                     <li><a href="#">Action</a>
@@ -495,7 +560,10 @@
                                             <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fuga odio quibusdam. Iure expedita, incidunt unde quis nam! Quod, quisquam. Officia quam qui adipisci quas consequuntur nostrum sequi. Consequuntur, commodi.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fuga odio
+                                                quibusdam. Iure expedita, incidunt unde quis nam! Quod, quisquam.
+                                                Officia quam qui adipisci quas consequuntur nostrum sequi. Consequuntur,
+                                                commodi.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -507,7 +575,10 @@
                                             <h4 class="timeline-title">Lorem ipsum dolor</h4>
                                         </div>
                                         <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
+                                                obcaecati, quaerat tempore officia voluptas debitis consectetur culpa
+                                                amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt
+                                                quisquam maxime neque eaque.</p>
                                         </div>
                                     </div>
                                 </li>
@@ -594,7 +665,8 @@
                             <i class="fa fa-comments fa-fw"></i>
                             Chat
                             <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                    data-toggle="dropdown">
                                     <i class="fa fa-chevron-down"></i>
                                 </button>
                                 <ul class="dropdown-menu slidedown">
@@ -632,7 +704,8 @@
                             <ul class="chat">
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar"
+                                            class="img-circle" />
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -642,13 +715,15 @@
                                             </small>
                                         </div>
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
+                                            ornare dolor, quis ullamcorper ligula sodales.
                                         </p>
                                     </div>
                                 </li>
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar"
+                                            class="img-circle" />
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -657,13 +732,15 @@
                                             <strong class="pull-right primary-font">Bhaumik Patel</strong>
                                         </div>
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
+                                            ornare dolor, quis ullamcorper ligula sodales.
                                         </p>
                                     </div>
                                 </li>
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar"
+                                            class="img-circle" />
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -672,13 +749,15 @@
                                                 <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
                                         </div>
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
+                                            ornare dolor, quis ullamcorper ligula sodales.
                                         </p>
                                     </div>
                                 </li>
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar"
+                                            class="img-circle" />
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -687,7 +766,8 @@
                                             <strong class="pull-right primary-font">Bhaumik Patel</strong>
                                         </div>
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
+                                            ornare dolor, quis ullamcorper ligula sodales.
                                         </p>
                                     </div>
                                 </li>
@@ -696,7 +776,8 @@
                         <!-- /.panel-body -->
                         <div class="panel-footer">
                             <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                                <input id="btn-input" type="text" class="form-control input-sm"
+                                    placeholder="Type your message here..." />
                                 <span class="input-group-btn">
                                     <button class="btn btn-warning btn-sm" id="btn-chat">
                                         Send
@@ -717,4 +798,5 @@
     </div>
     <!-- /#wrapper -->
 </body>
+
 </html>
