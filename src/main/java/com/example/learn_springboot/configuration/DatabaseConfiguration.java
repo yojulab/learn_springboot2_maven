@@ -5,11 +5,13 @@ import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -17,6 +19,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 // @PropertySource("classpath:/application.properties")
 @EnableTransactionManagement
 public class DatabaseConfiguration {
+
+	// @Value("${spring.datasource.url}")
+	// private String localurl;
+
 	@Bean
 	// @ConfigurationProperties(prefix = "spring.datasource")
 	@Primary
@@ -30,7 +36,7 @@ public class DatabaseConfiguration {
 	// private ApplicationContext applicationContext;
 
 	@Bean
-	public SqlSessionFactory sqlSessionFactory(DataSource dataSource, ApplicationContext applicationContext)
+	public SqlSessionFactory sqlSessionFactory(DataSource dataSource)
 			throws Exception {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource((javax.sql.DataSource) dataSource);
