@@ -10,12 +10,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   @Override
   public void configure(WebSecurity web) throws Exception {
-    // web.ignoring().antMatchers("/resources/**");
+    // String[] resources = new String[] { "/css/**", "/icons/**", "/images/**", "/js/**", "/fonts/**" };
+    // web.ignoring().antMatchers(resources);
   }
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests().antMatchers("/home").permitAll().antMatchers("/api/**", "/index").authenticated().and()
+    String[] permitAllList = new String[] { "/", "/home", "/index"};
+    http.authorizeRequests().antMatchers(permitAllList).permitAll().antMatchers("/api/**").authenticated().and()
         .formLogin();
   }
 }
